@@ -1,0 +1,15 @@
+* text=auto
+
+# Source documents must remain byte-for-byte unchanged.
+*.pdf binary
+
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.lock text eol=lf
+Makefile text eol=lf
+
+# Preserve this user-authored historical document, including existing whitespace.
+docs/UNDERSTANDING.md -text -whitespace

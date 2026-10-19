@@ -1,0 +1,3 @@
+include Makefile uv.lock .env.example AGENTS.md
+recursive-include tests *.py
+recursive-include docs/decisions *.md

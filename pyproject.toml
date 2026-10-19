@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools==80.10.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "policypilot"
+version = "0.1.0"
+description = "Permission-aware policy RAG assistant — foundational services"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "argon2-cffi==25.1.0",
+    "fastapi==0.136.3",
+    "pydantic==2.12.5",
+    "pydantic-settings==2.14.1",
+    "uvicorn==0.40.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx==0.28.1",
+    "hypothesis>=6.150,<7",
+    "mypy>=1.19,<2",
+    "pytest==9.0.3",
+    "pytest-cov>=7,<8",
+    "ruff==0.16.10",
+]
+
+[tool.setuptools.packages.find]
+include = ["policypilot*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = ["error"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = [".cache"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["policypilot"]
+plugins = ["pydantic.mypy"]
+
+[tool.coverage.run]
+branch = true
+source = ["policypilot"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 95
