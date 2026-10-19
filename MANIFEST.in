@@ -1,3 +1,4 @@
-include Makefile uv.lock .env.example AGENTS.md
+include Makefile uv.lock AGENTS.md CONTRIBUTING.md guidline_to_run_app.md
+exclude .env .env.*
 recursive-include tests *.py
 recursive-include docs/decisions *.md

@@ -18,3 +18,26 @@ dist/
 *.egg-info/
 data/
 !data/.gitkeep
+
+# Local databases, credentials, backups, and workstation artifacts.
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.db
+*.db-*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+credentials.json
+*.bak
+*.backup
+*.log
+.DS_Store
+Thumbs.db
+.idea/

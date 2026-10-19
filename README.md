@@ -98,6 +98,17 @@ uv run --frozen pytest tests/authorization -q
 uv build --no-sources
 ```
 
+## Git workflow
+
+The project now has local Git history and a main/topic-branch workflow. See [CONTRIBUTING.md](CONTRIBUTING.md) for review rules, secret-baseline policy, and hosting setup still required.
+
+```sh
+make hooks      # Install commit and push safeguards in this clone
+make git-check  # Run repository-wide commit checks
+```
+
+Local hooks are not automatically installed in new clones and can be bypassed. Remote branch protection and required reviews must be configured after selecting a hosting repository.
+
 ## Next gate
 
 The user confirmed authorization-test review and approved the identity design; implementation is recorded in `docs/decisions/0002-identity-and-sessions.md`. Corpus licensing must be approved before ingestion, model/provider/budget before paid calls, and evaluation precedence before dataset work. See `docs/decisions/0001-foundation.md` for deferred decisions. Passing these tests does not establish production security or completion of the full security evaluation.

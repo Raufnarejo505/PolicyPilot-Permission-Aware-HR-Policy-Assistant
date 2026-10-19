@@ -18,9 +18,11 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "detect-secrets==1.5.0",
     "httpx==0.28.1",
     "hypothesis>=6.150,<7",
     "mypy>=1.19,<2",
+    "pre-commit==4.3.0",
     "pytest==9.0.3",
     "pytest-cov>=7,<8",
     "ruff==0.16.10",

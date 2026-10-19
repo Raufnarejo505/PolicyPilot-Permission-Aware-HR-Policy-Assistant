@@ -1,0 +1,41 @@
+minimum_pre_commit_version: "4.3.0"
+default_install_hook_types: [pre-commit, pre-push]
+default_stages: [pre-commit]
+
+repos:
+  - repo: local
+    hooks:
+      - id: forbid-sensitive-files
+        name: Block credential files and local databases
+        language: fail
+        entry: "Do not commit environment secrets, private keys, credentials, or local databases."
+        files: '(?i)(^|/)(\.env(?:\.(?!example$)[^/]+)?|id_(?:rsa|dsa|ecdsa|ed25519)|credentials\.json|.*\.(?:pem|key|p12|pfx|sqlite3?(?:-(?:wal|shm|journal))?|db(?:-(?:wal|shm|journal))?))$'
+      - id: detect-secrets
+        name: Scan for secrets (offline; reviewed baseline)
+        language: system
+        entry: uv run --frozen detect-secrets-hook --baseline .secrets.baseline --no-verify
+        exclude: ^\.secrets\.baseline$
+        types: [text]
+      - id: ruff-check
+        name: Ruff lint
+        language: system
+        entry: uv run --frozen ruff check
+        files: ^(policypilot|tests)/.*\.py$
+      - id: ruff-format
+        name: Ruff formatting (check only)
+        language: system
+        entry: uv run --frozen ruff format --check
+        files: ^(policypilot|tests)/.*\.py$
+      - id: mypy
+        name: Strict application typing
+        language: system
+        entry: uv run --frozen mypy
+        files: ^(policypilot/.*\.py|pyproject\.toml|uv\.lock)$
+        pass_filenames: false
+      - id: pre-push-check
+        name: Full validation before push
+        language: system
+        entry: make check git-check
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]

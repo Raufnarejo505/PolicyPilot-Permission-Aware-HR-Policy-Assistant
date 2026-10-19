@@ -127,7 +127,16 @@ Tests use temporary databases and synthetic content. Passing tests demonstrates 
 | Login returns 422 | Submit only `username` and `password` using the documented JSON shape. |
 | `/docs` is unavailable | Check whether production mode is enabled; production disables interactive docs. |
 
-## 8. Scope and deployment limits
+## 8. Monitor Git progress
+
+```sh
+git --no-optional-locks status --short --branch
+git --no-pager log --oneline --graph --decorate --all
+```
+
+Install this clone's Git safeguards with `make hooks` and run them on tracked files with `make git-check`. See [CONTRIBUTING.md](CONTRIBUTING.md) for branch, commit, review, and secret-handling guidance. No remote is configured automatically.
+
+## 9. Scope and deployment limits
 
 This guide is for a local development/demo setup, not public hosting. External deployment still needs HTTPS, trusted ingress configuration, concurrency/abuse controls, and database/backup protection.
 

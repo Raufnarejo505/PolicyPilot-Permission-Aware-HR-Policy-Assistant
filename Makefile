@@ -1,11 +1,17 @@
 export UV_CACHE_DIR := .cache/uv
 
-.PHONY: setup check lint format typecheck test run
+.PHONY: setup check lint format typecheck test run hooks git-check
 
 setup:
 	uv sync --frozen
 
 check: lint typecheck test
+
+hooks:
+	uv run --frozen pre-commit install
+
+git-check:
+	uv run --frozen pre-commit run --all-files --hook-stage pre-commit
 
 lint:
 	uv run --frozen ruff check policypilot tests
