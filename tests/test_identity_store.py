@@ -901,3 +901,29 @@ def test_caller_update_failure_rolls_back_all_counters_and_session_cleanup(
         store.consume_login_attempt(DIGEST, 2, caller_digest=DIGEST)
     assert login_buckets(db_path) == before
     assert stored_sessions(db_path) == [(DIGEST, "u1", 2)]
+
+
+def test_create_users_batch_is_atomic_and_validated(store: IdentityStore) -> None:
+    from policypilot.app.services.identity_store import NewUser
+
+    first = NewUser("batch-1", "batch.one", HASH)
+    second = NewUser("batch-2", "batch.two", NEW_HASH, frozenset({Permission.HR}))
+    store.create_users((first, second))
+    assert store.get_credentials("batch.one") is not None
+    assert store.get_user("batch-2").assigned_permissions == frozenset({Permission.HR})
+    with pytest.raises(ValueError):
+        store.create_users(())
+    with pytest.raises(ValueError):
+        store.create_users((NewUser("batch-3", "batch.three", "not-a-hash"),))
+    with pytest.raises(ValueError):
+        store.create_users((NewUser("batch-4", "Bad Name", HASH),))
+    with pytest.raises(sqlite3.IntegrityError):
+        store.create_users(
+            (
+                NewUser("batch-new", "batch.new", HASH),
+                NewUser("batch-1", "batch.duplicate", HASH),
+            )
+        )
+    assert store.get_user("batch-4") is None
+    assert store.get_user("batch-new") is None
+    assert store.get_user("batch-1") is not None
