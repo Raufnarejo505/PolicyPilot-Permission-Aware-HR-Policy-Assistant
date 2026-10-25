@@ -14,7 +14,8 @@ repos:
         name: Scan for secrets (offline; reviewed baseline)
         language: system
         entry: uv run --frozen detect-secrets-hook --baseline .secrets.baseline --no-verify
-        exclude: ^\.secrets\.baseline$
+        # Corpus checksum manifests are public SHA-256 values, not credentials.
+        exclude: ^(\.secrets\.baseline$|docs/corpus/.*\.json$)
         types: [text]
       - id: ruff-check
         name: Ruff lint
