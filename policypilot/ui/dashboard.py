@@ -957,6 +957,11 @@ def _chips(values: Sequence[object], *, role: bool = False, empty: str = "Baseli
     return "".join(f'<span class="{css}">{_esc(value)}</span>' for value in values)
 
 
+def _section_leaf(section: str) -> str:
+    """Show the readable final section label in compact cards."""
+    return section.rsplit(" / ", 1)[-1]
+
+
 def _identity_card(identity: MeResponse) -> None:
     with st.container(border=True):
         st.markdown('<div class="pp-kicker">YOUR ACCESS</div>', unsafe_allow_html=True)
@@ -1119,17 +1124,17 @@ def _policy_library(client: ApiClient, token: str) -> None:
                   <span class="pp-kicker">Policy</span>
                   <h3>{_esc(policy.title)}</h3>
                   <div class="pp-meta">{policy.chunks} indexed passages · updated {policy.updated_at:%d %b %Y}<br>Visible via {_esc(visible)}</div>
-                  <div class="pp-sections">{"".join(f"<span>{_esc(section)}</span>" for section in policy.sections[:8])}</div>
+                  <div class="pp-sections">{"".join(f"<span>{_esc(_section_leaf(section))}</span>" for section in policy.sections[:6])}</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
-            if len(policy.sections) > 8:
-                st.caption(f"+ {len(policy.sections) - 8} more sections")
-            with st.expander("View section labels"):
+            if len(policy.sections) > 6:
+                st.caption(f"+ {len(policy.sections) - 6} more sections")
+            with st.expander("View section labels and source"):
                 for section in policy.sections:
                     st.caption(section)
-            st.caption(policy.source_url)
+                st.caption(policy.source_url)
 
 
 def _degraded_portal(client: ApiClient, admin: bool) -> None:
