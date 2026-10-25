@@ -58,10 +58,14 @@ async def test_development_openapi_has_health_route():
         assert (await client.get("/docs")).status_code == 200
 
 
-@pytest.mark.parametrize("path", ["/api/v1/query", "/api/v1/sources/test", "/api/v1/admin"])
-async def test_no_unprotected_placeholder_business_endpoints(path):
+async def test_query_and_source_require_authentication():
     app = create_app(Settings(environment="test", _env_file=None))
     async with httpx.AsyncClient(
         transport=httpx.ASGITransport(app=app), base_url="http://test"
     ) as client:
-        assert (await client.get(path)).status_code == 404
+        query = await client.post("/api/v1/query", json={"question": "leave"})
+        source = await client.get("/api/v1/sources/example")
+        admin = await client.get("/api/v1/admin")
+    assert query.status_code == 401
+    assert source.status_code == 401
+    assert admin.status_code == 404
