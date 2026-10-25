@@ -1,0 +1,1 @@
+{"abstention_accuracy": 1.0, "abstention_items": 1, "answerable_items": 10, "items": 11, "mrr_at_10": 0.6642857142857143, "precision_at_k": 0.13999999999999999, "recall_at_k": 0.7, "unauthorized_or_forbidden_hits": 0}

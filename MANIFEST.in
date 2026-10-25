@@ -1,4 +1,9 @@
 include Makefile uv.lock AGENTS.md CONTRIBUTING.md guidline_to_run_app.md
+include LICENSE SECURITY.md
+include .streamlit/config.toml
 exclude .env .env.*
 recursive-include tests *.py
 recursive-include docs/decisions *.md
+recursive-include docs/corpus *.md *.json
+recursive-include docs/assets *.png
+recursive-include docs/evaluation *.md *.jsonl *.json

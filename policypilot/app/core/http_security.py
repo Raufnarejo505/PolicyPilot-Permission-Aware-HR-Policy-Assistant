@@ -1,7 +1,22 @@
-"""Bound authentication bodies before JSON parsing and prevent credential caching."""
+"""Bound private request bodies before JSON parsing and prevent response caching."""
 
 from starlette.responses import JSONResponse
 from starlette.types import ASGIApp, Message, Receive, Scope, Send
+
+_PRIVATE_PATHS = frozenset(
+    {
+        "/api/v1/auth/login",
+        "/api/v1/auth/logout",
+        "/api/v1/me",
+        "/api/v1/query",
+        "/api/v1/policies",
+        "/api/v1/admin/overview",
+    }
+)
+
+
+def _private(path: str) -> bool:
+    return path in _PRIVATE_PATHS or path.startswith("/api/v1/sources/")
 
 
 class AuthenticationBoundary:
@@ -9,11 +24,7 @@ class AuthenticationBoundary:
         self.app = app
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
-        if scope["type"] != "http" or scope["path"] not in (
-            "/api/v1/auth/login",
-            "/api/v1/auth/logout",
-            "/api/v1/me",
-        ):
+        if scope["type"] != "http" or not _private(scope["path"]):
             await self.app(scope, receive, send)
             return
 
