@@ -1,0 +1,11 @@
+{"question":"How many annual leave days do full-time employees get?","permissions":["Employee"],"relevant_chunk_ids":["chunk-e0fae00db2bf115b7c6b5f9fe56db25cf565f695c6a928c287a1538b29388eca"]}
+{"question":"How do I request a flexible work arrangement?","permissions":["Employee"],"relevant_chunk_ids":["chunk-4529eb7eaa569c9f9f755b4937baf242a2ca1c60ac71d7a8c3a6987e98cba962"]}
+{"question":"How do I report harassment at work?","permissions":["Employee"],"relevant_chunk_ids":["chunk-18be16f7d27c0c80d0390a54866c11a4902448c09732f4a81d5736454f07aa8c"]}
+{"question":"What are the password rules for company systems?","permissions":["Employee"],"relevant_chunk_ids":["chunk-120b2c9684fac659c1d31d983327cbaa03db17320f5fe93f634d4196c0629376"]}
+{"question":"Which travel expenses can I claim?","permissions":["Employee"],"relevant_chunk_ids":["chunk-0891e0f848ca7fa39953c9e51af251e1a07f1f9cdd5eda3a5e98c47a75de6975"]}
+{"question":"How long is personal data retained?","permissions":["Employee"],"relevant_chunk_ids":["chunk-148d29244473820654b649d27eefe6a774557e60e4c38d2a0091ae355c6034da"]}
+{"question":"What are the stages of the grievance procedure?","permissions":["Manager"],"relevant_chunk_ids":["chunk-d0d7ac59d9020ffd96e0851401a058630f16ea276693934db6a51e134470202d"]}
+{"question":"When are annual performance reviews conducted?","permissions":["Manager"],"relevant_chunk_ids":["chunk-3cc898ce782da40a62a14f56d6ded4c3ad6dcf2a491e899cd0bb4e02d8d7f7d7"]}
+{"question":"How do I submit a whistleblowing report?","permissions":["HR"],"relevant_chunk_ids":["chunk-ce311bc54652b7fb56cc0d1f68bafb9d15f0772cd03c6d86bb938b368094d3e1"]}
+{"question":"What are the salary bands?","permissions":["Finance"],"relevant_chunk_ids":["chunk-08bcb3dfd1e84ee9b79beb9ff109415c4ebd32789ab46372d0372a7f21853ce7"]}
+{"question":"sabbatical","permissions":["Employee"],"expect_abstain":true,"forbidden_doc_ids":["doc-441b3146ff23153b60877f1b3a250b49ac324430b1621dfdda43303b744a1d87"]}

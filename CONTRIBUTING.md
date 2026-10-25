@@ -61,6 +61,8 @@ Hooks are local safeguards, not an authorization/security boundary: Git permits 
 - One `tests/test_content.py` entry: intentionally rejected credentials in an `example.invalid` URL.
 - One `tests/test_identity_store.py` entry: an intentionally corrupt password-hash sentinel.
 
+The frontend milestone adds three individually inspected synthetic findings in `tests/test_ui_client.py`: the expected JSON test password, credentials in a deliberately rejected localhost URL, and the prefix of a randomly generated integration-test password. Only these exact hashes are marked false positives; no detector or test-file exclusion was added. Review these additions with the frontend branch.
+
 Do not regenerate/approve a baseline automatically just to clear a failure. Review each new finding. If it is real, remove and rotate/revoke the credential; deleting the current line does not remove it from Git history. Any necessary history cleanup must be coordinated before rewriting shared commits.
 
 To inspect a newly generated candidate baseline without overwriting approved exceptions:

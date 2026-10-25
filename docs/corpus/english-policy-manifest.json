@@ -1,0 +1,303 @@
+{
+  "dataset": {
+    "title": "Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)",
+    "publisher": "Beata Faron",
+    "source_page": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer",
+    "release": "2025-01 / v1.0",
+    "archive": "data/archive.zip",
+    "archive_sha256": "c7242e1c6bc981f0f418aa68fabfef11e7d0cc370ae32bd168c376a341450d7c",
+    "retrieved_on": "2026-10-25",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "approved_scope": "English policy DOCX files only",
+    "extractor": "docx-text-markdown-v2",
+    "english_document_count": 18,
+    "notes": [
+      "Packaged README and dataset_card.json both state CC BY 4.0 and synthetic content.",
+      "The packaged README advertises a MANIFEST.csv but the archive contains no such file; checksums below were computed directly from the archive.",
+      "The dataset README says 17 policies per language; 18 English policy DOCX files are present.",
+      "No Polish files, employee tables, chats, emails, tickets, or other non-policy files are in scope."
+    ]
+  },
+  "status": "approved",
+  "approved": true,
+  "approved_by": "Abdul Rauf (project owner)",
+  "approved_on": "2026-10-25",
+  "approval_note": "Approved in session on 2026-10-25; permission mapping accepted as proposed.",
+  "documents": [
+    {
+      "file": "anti_harassment_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/anti_harassment_policy_en.docx",
+      "sha256": "589ec11fc5748d470f23656a60a47fa9bc712ffe5fa5e3c8c479ff5aa39eae99",
+      "title": "Anti-Harassment & Workplace Respect Policy (EN, 2025-01, Expanded)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=anti_harassment_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-wide conduct and respect policy.",
+      "extracted_sha256": "a5447fd151c57efe15107dc5a68e702de27538cfa00476a7ec3f325dedf1a3dd"
+    },
+    {
+      "file": "code_of_conduct_en.docx",
+      "archive_path": "company_bronze/data/content/policies/code_of_conduct_en.docx",
+      "sha256": "adadc6b10d2a2fec9f57b84b7faab27fce4088c864475699889613c081c8f34c",
+      "title": "Code of Conduct & Ethics (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=code_of_conduct_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Public"
+      ],
+      "rationale": "Company-wide public code of conduct.",
+      "extracted_sha256": "115c27957395fbfe1177ae097ee56ba207775e0a253a22152a2167652b3a3296"
+    },
+    {
+      "file": "compensation_benefits_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/compensation_benefits_policy_en.docx",
+      "sha256": "02218c28f5f1385b141fd6ebcf11ac69fd0807c4c06bfc03ca67ca6ff9e0f921",
+      "title": "Compensation & Benefits Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=compensation_benefits_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "HR",
+        "Finance"
+      ],
+      "rationale": "Sensitive compensation and benefits detail.",
+      "extracted_sha256": "5870bc0cb2cc2b7591812cd268c3d722d1d43aebae56b3c7d3bd9c6a82071205"
+    },
+    {
+      "file": "data_privacy_gdpr_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/data_privacy_gdpr_policy_en.docx",
+      "sha256": "64edfc4306d5339ba001b8d2aa6dbbf59d1e342b0345252c8cd9345974307be8",
+      "title": "Data Privacy & GDPR Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=data_privacy_gdpr_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-facing privacy and data-handling rules.",
+      "extracted_sha256": "3df6ddd93117c8eb1226e6d6d335d86f0fc56b54e12a24922d83a45643128d6c"
+    },
+    {
+      "file": "dei_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/dei_policy_en.docx",
+      "sha256": "276c1e7a658d5e7d91957c02b3c014ee3d23979de6b7bcc50fdb1fcc39b56826",
+      "title": "Diversity, Equity & Inclusion Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=dei_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Public"
+      ],
+      "rationale": "Public diversity, equity and inclusion commitment.",
+      "extracted_sha256": "a0c80ea7b5677835b7edb3bd2652f5f7242218732b8c3b0a235464990c5c2467"
+    },
+    {
+      "file": "equal_opportunity_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/equal_opportunity_policy_en.docx",
+      "sha256": "563e2fe30b7f3bf612fb4ebbd8272b1a31b65614afadd49ad2a0749043b7752a",
+      "title": "Equal Opportunity Employment Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=equal_opportunity_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Public"
+      ],
+      "rationale": "Public equal-opportunity commitment.",
+      "extracted_sha256": "5ad0b52284f538e4cede70a004d3a89c1d69a5b627070ef4c6e7d8e9a4d09953"
+    },
+    {
+      "file": "flexible_work_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/flexible_work_policy_en.docx",
+      "sha256": "661bde2886e55eb47a1b04914c02d43d15cda059d179f158ba51c58b5d8bc479",
+      "title": "Flexible Work Arrangements Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=flexible_work_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-wide flexible-work rules.",
+      "extracted_sha256": "19f22e60073fea6fc870d1f569400e00ac421868aa407680324a0f606d8012d6"
+    },
+    {
+      "file": "grievance_disciplinary_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/grievance_disciplinary_policy_en.docx",
+      "sha256": "c981b447961e841febd2a3677d41fc52af91544a85d89bb7a1e7c284e291f890",
+      "title": "Employee Grievance & Disciplinary Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=grievance_disciplinary_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Manager",
+        "HR"
+      ],
+      "rationale": "Sensitive grievance and disciplinary handling.",
+      "extracted_sha256": "afe23f26c08f3c60be3f990c6e3b784cc2728f2b6fa61feffbbe1b0e094a99fb"
+    },
+    {
+      "file": "health_safety_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/health_safety_policy_en.docx",
+      "sha256": "59a3e5913fd1366ba68412a0e13915773724a487da05bbaf82a83b4a76c261b0",
+      "title": "Health & Safety Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=health_safety_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-wide health and safety rules.",
+      "extracted_sha256": "41fe8de83e58fb93514510c913a5f34c140937b7a2e27a858bd65f23ac208df6"
+    },
+    {
+      "file": "it_security_acceptable_use_en.docx",
+      "archive_path": "company_bronze/data/content/policies/it_security_acceptable_use_en.docx",
+      "sha256": "e70af357dad5ba0c3d86d98ff1688b763dcde605f0c0668266097887a2d6ac0a",
+      "title": "IT Security & Acceptable Use Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=it_security_acceptable_use_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-wide IT security rules.",
+      "extracted_sha256": "85936289bdcb806274a395511a28ec7b7a4a0bffd8679418a6d75730fd082937"
+    },
+    {
+      "file": "leave_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/leave_policy_en.docx",
+      "sha256": "9c63cc39c3b852bff19510ceadbff5e0929939e23ada4fd469d47b0cab410054",
+      "title": "Annual Leave Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=leave_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-wide leave entitlements.",
+      "extracted_sha256": "3620cad2af4aec4f8f7fc8d2a35cbe793760cbb745cbe5e39e0e3aa146f3b041"
+    },
+    {
+      "file": "performance_review_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/performance_review_policy_en.docx",
+      "sha256": "710cd4a1be03beb947cb7275f18a7d9eed8c5014f248dd07ee85e7d48151880e",
+      "title": "Performance Review & Appraisal Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=performance_review_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Manager",
+        "HR"
+      ],
+      "rationale": "Manager/HR appraisal process.",
+      "extracted_sha256": "5ba75b5cf4e6d755835b66145e05ee9bc04dc867124dc1d6fffc8f192a6268aa"
+    },
+    {
+      "file": "recruitment_onboarding_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/recruitment_onboarding_policy_en.docx",
+      "sha256": "15044a0c119e66bd4f08eb5fa315a3f1d9dec2099b21266ff645e92595ef6f40",
+      "title": "Recruitment & Onboarding Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=recruitment_onboarding_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Manager",
+        "HR"
+      ],
+      "rationale": "Manager/HR recruitment process.",
+      "extracted_sha256": "e99f47208b84c52904a7e84c47fb27eaf010adc373f89d7d4cd3d6d76b3f5cd8"
+    },
+    {
+      "file": "remote_work_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/remote_work_policy_en.docx",
+      "sha256": "84306d4de3e27274a9e0ccca5789d01953a6f73a56a5f50c7253bf0810d81ee4",
+      "title": "Remote Work / Telework Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=remote_work_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-wide remote-work rules.",
+      "extracted_sha256": "b79b78d5a04349b00e8dc6e050d44a0ed99dc421d041a1c28cd1dbfaa6775484"
+    },
+    {
+      "file": "termination_exit_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/termination_exit_policy_en.docx",
+      "sha256": "a042d88509e5b1c5c0a642bbcbe510ca9fc4858fca9a5804ce7a8ce3362d2750",
+      "title": "Termination & Exit Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=termination_exit_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "HR"
+      ],
+      "rationale": "Sensitive termination and exit handling.",
+      "extracted_sha256": "e2f25ef2ee686a443f7a6b53acf0dce69fedba5651580f76e2398db18d0a6b27"
+    },
+    {
+      "file": "training_development_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/training_development_policy_en.docx",
+      "sha256": "7c7e92caa43675065bec7c6fb68e724ab7d4792244a98a1dae8a3b9f7a528883",
+      "title": "Training & Development Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=training_development_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-wide training entitlements.",
+      "extracted_sha256": "b53ade56c15793907414fb6ae54ccbc06937139308a0ff0ec17cf2b07846aba5"
+    },
+    {
+      "file": "travel_expense_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/travel_expense_policy_en.docx",
+      "sha256": "34df1f3e55482b1565986a951dd3e38ff2ace63aa18d2088c4b83f487aee1cfd",
+      "title": "Travel & Expense Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=travel_expense_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "Employee"
+      ],
+      "rationale": "Employee-wide travel and expense rules.",
+      "extracted_sha256": "f225f9422c96c4958018dffe5f0d30f49888f0c93f15b56067056bf39536d944"
+    },
+    {
+      "file": "whistleblowing_policy_en.docx",
+      "archive_path": "company_bronze/data/content/policies/whistleblowing_policy_en.docx",
+      "sha256": "698e01a192d7154323804ed93699ba00912be1836086dc1d1610053c3df2c005",
+      "title": "Whistleblowing & Ethics Reporting Policy (EN, 2025-01)",
+      "source_url": "https://www.kaggle.com/datasets/beatafaron/hr-corporate-data-bilingual-enpl-bronze-layer?select=whistleblowing_policy_en.docx",
+      "retrieved_on": "2026-10-25",
+      "licence_note": "CC BY 4.0. Dataset: \"Bilingual HR Bronze (EN/PL) \u2014 Synthetic Corporate Data Lake Snapshot (2025-01)\", publisher Beata Faron. https://creativecommons.org/licenses/by/4.0/",
+      "version": "2025-01/v1.0",
+      "allowed_permissions": [
+        "HR"
+      ],
+      "rationale": "Sensitive ethics-reporting and whistleblowing channel.",
+      "extracted_sha256": "59923794d49c10b698c2c3d360866e5fb560fab755cd94e1277bf18637280c2e"
+    }
+  ]
+}
