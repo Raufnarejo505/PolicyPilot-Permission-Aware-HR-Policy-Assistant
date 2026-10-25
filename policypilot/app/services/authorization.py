@@ -1,15 +1,38 @@
 """Deny-by-default authorization, independent of retrieval and model behavior."""
 
+from dataclasses import dataclass, field
 from typing import Protocol
 
+from policypilot.app.models.content import Chunk, valid_chunk
 from policypilot.app.models.domain import Permission, Principal, SystemRole, valid_principal
 
 _BASELINE = frozenset({Permission.PUBLIC, Permission.EMPLOYEE})
 _DENIED = "Authorization denied"
+_BUNDLE_TOKEN = object()
 
 
 class AuthorizationError(Exception):
     """Generic failure: never exposes store errors, grants, or identity existence."""
+
+
+@dataclass(frozen=True, init=False)
+class AuthorizedEvidenceBundle:
+    """Point-in-time evidence for internal downstream consumers, never a cache grant.
+
+    Only AuthorizationService issues bundles. Python's private construction token is
+    an API misuse guard, not protection against hostile code running in this process.
+    Future requests, citations, and source reads must authorize again; this value
+    proves neither index freshness nor that the supplied user ID was authenticated.
+    """
+
+    principal: Principal = field(repr=False)
+    chunks: tuple[Chunk, ...] = field(repr=False)
+
+    def __init__(self, token: object, principal: Principal, chunks: tuple[Chunk, ...]) -> None:
+        if token is not _BUNDLE_TOKEN:
+            raise AuthorizationError(_DENIED)
+        object.__setattr__(self, "principal", principal)
+        object.__setattr__(self, "chunks", chunks)
 
 
 class UserStore(Protocol):
@@ -55,6 +78,23 @@ def has_system_role(principal: Principal | None, role: SystemRole) -> bool:
 class AuthorizationService:
     def __init__(self, store: UserStore) -> None:
         self._store = store
+
+    def authorize(self, user_id: str, candidates: tuple[Chunk, ...]) -> AuthorizedEvidenceBundle:
+        """Recheck every candidate before reranking/model input, including bad index hits.
+
+        Callers must authenticate first and prefilter search by current grants. This
+        independent check does not replace either step. Invalid/denied candidates
+        are omitted without diagnostics or counts; no evidence remains an empty tuple.
+        """
+        principal = self.resolve(user_id)
+        if type(candidates) is not tuple:
+            raise AuthorizationError(_DENIED)
+        permitted = tuple(
+            candidate
+            for candidate in candidates
+            if valid_chunk(candidate) and can_read(principal, candidate.allowed_permissions)
+        )
+        return AuthorizedEvidenceBundle(_BUNDLE_TOKEN, principal, permitted)
 
     def resolve(self, user_id: str) -> Principal:
         if type(user_id) is not str or not user_id.strip():

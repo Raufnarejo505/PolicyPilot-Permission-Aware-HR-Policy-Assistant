@@ -29,6 +29,54 @@ class Session:
     expires_at: int
 
 
+@dataclass(frozen=True)
+class UserAccount:
+    user_id: str
+    username: str
+    enabled: bool
+    assigned_permissions: frozenset[Permission]
+    system_roles: frozenset[SystemRole]
+    permission_version: int
+
+
+@dataclass(frozen=True)
+class NewUser:
+    user_id: str
+    username: str
+    password_hash: str = field(repr=False)
+    assigned_permissions: frozenset[Permission] = field(default_factory=frozenset)
+    system_roles: frozenset[SystemRole] = field(default_factory=frozenset)
+
+
+def _valid_new_user(value: object) -> bool:
+    try:
+        return (
+            type(value) is NewUser
+            and type(value.user_id) is str
+            and bool(value.user_id.strip())
+            and type(value.username) is str
+            and _USERNAME.fullmatch(value.username) is not None
+            and type(value.password_hash) is str
+            and _valid_hash(value.password_hash)
+            and type(value.assigned_permissions) is frozenset
+            and all(type(label) is Permission for label in value.assigned_permissions)
+            and type(value.system_roles) is frozenset
+            and all(type(role) is SystemRole for role in value.system_roles)
+            and bool(value.user_id)
+            and bool(value.username)
+        )
+    except (AttributeError, TypeError):
+        return False
+
+
+def _valid_hash(password_hash: str) -> bool:
+    try:
+        _validate_hash(password_hash)
+    except (TypeError, ValueError):
+        return False
+    return True
+
+
 def _validate_hash(password_hash: str) -> None:
     # Encoding validation only: password verification belongs to the authentication layer.
     if (
@@ -142,6 +190,37 @@ class IdentityStore:
             ).fetchone()
             return None if row is None else _principal(row)
 
+    def list_users(self) -> tuple[UserAccount, ...]:
+        """Return account metadata only; password hashes never leave the store."""
+        with self._connection() as connection:
+            rows = connection.execute(
+                """SELECT user_id, username, enabled, permissions, system_roles,
+                    permission_version FROM users ORDER BY username"""
+            ).fetchall()
+            accounts: list[UserAccount] = []
+            for row in rows:
+                principal = _principal(row)
+                username = row["username"]
+                enabled = row["enabled"]
+                if (
+                    type(username) is not str
+                    or _USERNAME.fullmatch(username) is None
+                    or type(enabled) is not int
+                    or enabled not in (0, 1)
+                ):
+                    raise ValueError(_INVALID)
+                accounts.append(
+                    UserAccount(
+                        user_id=principal.user_id,
+                        username=username,
+                        enabled=bool(enabled),
+                        assigned_permissions=principal.assigned_permissions,
+                        system_roles=principal.system_roles,
+                        permission_version=principal.permission_version,
+                    )
+                )
+            return tuple(accounts)
+
     def get_credentials(self, username: str) -> Credential | None:
         with self._connection() as connection:
             row = connection.execute(
@@ -164,21 +243,42 @@ class IdentityStore:
         assigned_permissions: frozenset[Permission] = frozenset(),
         system_roles: frozenset[SystemRole] = frozenset(),
     ) -> None:
-        Principal(user_id, assigned_permissions, system_roles)
-        if type(username) is not str or _USERNAME.fullmatch(username) is None:
+        self.create_users(
+            (
+                NewUser(
+                    user_id=user_id,
+                    username=username,
+                    password_hash=password_hash,
+                    assigned_permissions=assigned_permissions,
+                    system_roles=system_roles,
+                ),
+            )
+        )
+
+    def create_users(self, users: tuple[NewUser, ...]) -> None:
+        """Create a nonempty batch atomically; no partial demo/provisioning state."""
+        if (
+            type(users) is not tuple
+            or not 1 <= len(users) <= 64
+            or not all(_valid_new_user(user) for user in users)
+            or len({user.user_id for user in users}) != len(users)
+            or len({user.username for user in users}) != len(users)
+        ):
             raise ValueError(_INVALID)
-        _validate_hash(password_hash)
         with self._connection(write=True) as connection:
-            connection.execute(
+            connection.executemany(
                 """INSERT INTO users
                     (user_id, username, password_hash, permissions, system_roles)
                     VALUES (?, ?, ?, ?, ?)""",
                 (
-                    user_id,
-                    username,
-                    password_hash,
-                    json.dumps(sorted(assigned_permissions)),
-                    json.dumps(sorted(system_roles)),
+                    (
+                        user.user_id,
+                        user.username,
+                        user.password_hash,
+                        json.dumps(sorted(user.assigned_permissions)),
+                        json.dumps(sorted(user.system_roles)),
+                    )
+                    for user in users
                 ),
             )
 
