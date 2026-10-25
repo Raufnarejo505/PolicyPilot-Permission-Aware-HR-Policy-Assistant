@@ -5,21 +5,22 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "policypilot"
 version = "0.1.0"
-description = "Permission-aware policy RAG assistant — foundational services"
+description = "Permission-aware HR policy assistant with cited, role-scoped answers"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "argon2-cffi==25.1.0",
     "fastapi==0.136.3",
+    "httpx==0.28.1",
     "pydantic==2.12.5",
     "pydantic-settings==2.14.1",
+    "streamlit==1.66.0",
     "uvicorn==0.40.0",
 ]
 
 [dependency-groups]
 dev = [
     "detect-secrets==1.5.0",
-    "httpx==0.28.1",
     "hypothesis>=6.150,<7",
     "mypy>=1.19,<2",
     "pre-commit==4.3.0",
@@ -46,6 +47,7 @@ select = ["E", "F", "I", "UP", "B", "SIM", "S"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["S101"]
+"policypilot/ui/dashboard.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.12"
