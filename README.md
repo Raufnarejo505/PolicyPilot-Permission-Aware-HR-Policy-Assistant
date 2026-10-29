@@ -250,6 +250,8 @@ tests/                                      authorization, API, UI, corpus tests
 
 ## License
 
-Code is released under the [MIT License](LICENSE). The English policy corpus is from the
-CC BY 4.0 **HR Corporate Data** dataset; see the [inventory](docs/corpus/english-policy-inventory.json)
-and [manifest](docs/corpus/english-policy-manifest.json) for attribution and checksums.
+Code is released under the [GNU General Public License v3.0](LICENSE). Derivative works must
+be distributed under the same license, with source code made available. The English policy
+corpus is from the CC BY 4.0 **HR Corporate Data** dataset; see the
+[inventory](docs/corpus/english-policy-inventory.json) and
+[manifest](docs/corpus/english-policy-manifest.json) for attribution and checksums.
