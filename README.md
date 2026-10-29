@@ -127,6 +127,7 @@ flowchart LR
     ADMIN --> IDS
     ADMIN --> CS
 ```
+This project includes documentation for setup and usage. 
 
 Every query follows the same path:
 
