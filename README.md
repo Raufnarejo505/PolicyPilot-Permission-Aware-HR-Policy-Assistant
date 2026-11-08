@@ -1,18 +1,52 @@
-# PolicyPilot
+<div align="center">
+
+# 🛫 PolicyPilot
 
 **Policy answers, scoped to your role.**
 
-PolicyPilot is a permission-aware HR policy assistant. Employees ask a question in plain
-language and get a cited answer drawn only from policies their account may read. The same
-question can produce a different answer — or a safe abstention — for an Employee, Manager,
-or HR account.
+A permission-aware HR policy assistant: employees ask in plain language and get a cited
+answer drawn only from policies their account may read. The same question can produce a
+different answer — or a safe abstention — for an Employee, Manager, or HR account.
 
-[![checks](https://img.shields.io/badge/CI-GitHub_Actions-2088ff)](.github/workflows/ci.yml)
-[![coverage](https://img.shields.io/badge/coverage-95%25%2B-0f766e)](#validation)
-[![python](https://img.shields.io/badge/python-3.12%2B-3776ab)](pyproject.toml)
+[![checks](https://img.shields.io/badge/CI-GitHub_Actions-2088ff?style=flat-square)](.github/workflows/ci.yml)
+[![coverage](https://img.shields.io/badge/coverage-95%25%2B-0f766e?style=flat-square)](#validation)
+[![python](https://img.shields.io/badge/python-3.12%2B-3776ab?style=flat-square)](pyproject.toml)
+[![license](https://img.shields.io/github/license/Raufnarejo505/PolicyPilot-Permission-Aware-HR-Policy-Assistant?style=flat-square&color=blue)](LICENSE)
+[![last commit](https://img.shields.io/github/last-commit/Raufnarejo505/PolicyPilot-Permission-Aware-HR-Policy-Assistant?style=flat-square)](https://github.com/Raufnarejo505/PolicyPilot-Permission-Aware-HR-Policy-Assistant/commits/master)
 
+<br/>
+
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+![Ruff](https://img.shields.io/badge/lint-Ruff-261230?style=flat-square)
+![mypy](https://img.shields.io/badge/types-mypy%20strict-2A6DB2?style=flat-square)
+![pytest](https://img.shields.io/badge/tests-pytest-0A9EDC?style=flat-square)
+
+</div>
+
+---
+
+> [!NOTE]
 > Local/demo project. Not production certified. The corpus is CC BY 4.0 HR policy data;
 > no real employee data is used.
+
+## Contents
+
+- [Overview](#overview)
+- [Why this project exists](#why-this-project-exists)
+- [See it in action](#see-it-in-action)
+- [Try the demo](#try-the-demo)
+- [How it works](#how-it-works)
+- [Permission model](#permission-model)
+- [Validation](#validation)
+- [Retrieval smoke check](#retrieval-smoke-check)
+- [Limitations and next steps](#limitations-and-next-steps)
+- [Project structure](#project-structure)
+- [Documentation](#documentation)
+- [License](#license)
+
+## Overview
 
 ![PolicyPilot landing page](docs/assets/landing.png)
 
